@@ -1,12 +1,13 @@
 #include <iostream>
 #pragma once
+#include "state.hpp"
 
 class Grid;
 class Celula 
 {
 	
 	private:
-		int estado_;
+		State* estado_;
 		std::pair<int, int> posicion_; 
 		int num_vecinas_vivas_;
 
@@ -19,6 +20,8 @@ class Celula
 		int get_Estado(void) const;
 		std::pair<int, int> get_Posicion(void);
 		int get_VecinasVivas(void);
+		char getState() const;
+    void setState(State*);
 
 		void set_Estado(int estado);
 		void set_Posicion(std::pair<int, int> pos);
