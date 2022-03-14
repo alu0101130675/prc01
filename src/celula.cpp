@@ -1,13 +1,16 @@
 #include "../include/celula.hpp"
 #include "../include/grid.hpp"
+#include "../include/muerta.hpp"
 
 Celula::Celula(int i, int j) {
 	set_Posicion(i, j);
-	set_Estado(0);
+	StateMuerta a;
+	set_Estado(a);
 }
 
-int Celula::get_Estado(void) const {
-	return estado_;
+char Celula::getState(void) const {
+	//modificado el get estado
+	return estado_->getState();
 }
 
 std::pair<int, int> Celula::get_Posicion(void) {
@@ -18,7 +21,7 @@ int Celula::get_VecinasVivas(void) {
 	return num_vecinas_vivas_;
 }
 
-void Celula::set_Estado(int estado) {
+void Celula::setState(State *estado) {
 	estado_ = estado;
 }
 
