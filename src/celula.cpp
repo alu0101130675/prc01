@@ -4,8 +4,8 @@
 
 Celula::Celula(int i, int j) {
 	set_Posicion(i, j);
-	StateMuerta a;
-	set_Estado(a);
+	StateMuerta *ptr2 = new StateMuerta;
+	setState(ptr2);
 }
 
 char Celula::getState(void) const {
@@ -37,8 +37,8 @@ void Celula::set_VecinasVivas(int num) {
 	num_vecinas_vivas_ = num;
 }
 
-int Celula::actualizarEstado(void)  {
-	if(get_Estado() == 0) {
+/*int Celula::actualizarEstado(void)  {
+	if(getState() == 0) {
 		if(get_VecinasVivas() == 3) {
 			set_Estado(1);
 			return 1;
@@ -57,7 +57,7 @@ int Celula::actualizarEstado(void)  {
 			return 1;
 		}
 	}
-}
+}*/
 
 int Celula::contarVecinas(const Grid& board) {
 	int counter = 0;
@@ -67,7 +67,7 @@ int Celula::contarVecinas(const Grid& board) {
 		//evitamos contar la posicion en la que estamos
 			if(i != get_Posicion().first || j != get_Posicion().second)
 			//comprobamos si esta viva
-				if(board.get_Malla()[i * board.get_Columnas() + j]->get_Estado() == 1)
+				if(board.get_Malla()[i * board.get_Columnas() + j]->getState() == 1)
 					counter++;
 
  	set_VecinasVivas(counter);
@@ -75,10 +75,11 @@ int Celula::contarVecinas(const Grid& board) {
 }
 
 std::ostream& operator<<(std::ostream& cout, const Celula cel) {
-	if(cel.get_Estado() == 0)
-		cout << " ";
+/*	if(cel.getState() == ' ')
+		cout << "N ";
 	else
-		cout << "X";
+		cout << "X";*/
+		cout << cel.getState();
 
 	return cout;
 }

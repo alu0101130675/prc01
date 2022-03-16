@@ -22,8 +22,6 @@ class Celula
 		int get_VecinasVivas(void);
 		char getState() const;
     void setState(State*);
-
-		void set_Estado(int estado);
 		void set_Posicion(std::pair<int, int> pos);
 		void set_Posicion(int i, int j);
 		void set_VecinasVivas(int num);

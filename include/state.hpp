@@ -4,7 +4,10 @@
 class Grid;
 class State {
  public:
-  virtual int State::vecinos(const Grid&, int i, int j) = 0;
-  virtual State* State::nextState()=0;  
-  virtual char State::getState() const =0;
+ //forma de definir la vecindad, así como la cuenta de los tipos de las células
+ //vecinas de la que dependen las reglas de transición,
+ // virtual int vecinos(const Grid&, int i, int j) = 0;
+  //reglas de transicion
+  //Devuelve la letra inicial del estado
+  virtual char getState() const =0;
 };

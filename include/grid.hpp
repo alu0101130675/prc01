@@ -2,6 +2,11 @@
 #include <cassert>
 #pragma once
 #include "celula.hpp"
+#include "../include/stateEgg.hpp"
+#include "../include/stateLarva.hpp"
+#include "../include/statePupa.hpp"
+#include "../include/stateAdult.hpp"
+#include "../include/muerta.hpp"
 
 class Grid
 {

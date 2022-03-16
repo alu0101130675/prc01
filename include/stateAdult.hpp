@@ -1,6 +1,6 @@
 #pragma once
 #include "state.hpp"
-class StateEgg : public State {
+class StateAdult : public State {
  public:
   char getState() const;
 };
